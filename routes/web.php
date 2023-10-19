@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MasyarakatController;
+use App\Http\Middleware\ValidasiAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,17 +17,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-Route::prefix('admin')->group(function(){
-    Route::get('/',function(){
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
         return view('Administrator.index');
-    });
-    Route::get('login',function(){
-        return view('Administrator.Login');
-    });
+    })->middleware(ValidasiAdmin::class);
+    Route::get('login', [AdminController::class, 'login']);
+    Route::post('login', [AdminController::class, 'ceklogin']);
+    Route::get('logout', [AdminController::class, 'logout']);
 });
 
 // Route masyarakat
-Route::get('/', function () {
-    return view('Masyarakat.Index');
+Route::prefix('masyarakat')->group(function () {
+    Route::get('/', function () {
+        return view('Masyarakat.Index');
+    });
+    Route::get('login', [MasyarakatController::class, 'login']);
+    Route::post('login', [MasyarakatController::class, 'ceklogin']);
+    Route::get('logout', [MasyarakatController::class, 'logout']);
+    Route::get('registrasi',[MasyarakatController::class,'registrasi']);
+Route::post('simpan',[MasyarakatController::class,'simpan']);
 });

@@ -14,7 +14,7 @@ class Masyarakat extends Otentikasi
     protected $primaryKey='nik';
     protected $keyType='string';
 
-    protected $incrementing=false;
+    public $incrementing=false;
 
     public $guarded=[];
 }

@@ -15,7 +15,7 @@
             <span class="navbar-brand fw-bold">LPM Apps</span>
             <ul class="nav ms-auto">
                 <li class="nav-item">
-                    <a href="#" class="btn btn-success">Login</a>
+                    <a href="" class="btn btn-success">Logout</a>
                 </li>
             </ul>
         </div>

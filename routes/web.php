@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\MasyarakatController;
-use App\Http\Middleware\ValidasiAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', function () {
+
+Route::prefix('admin')->group(function(){
+    Route::get('/',function(){
         return view('Administrator.index');
-    })->middleware(ValidasiAdmin::class);
-    Route::get('login', [AdminController::class, 'login']);
-    Route::post('login', [AdminController::class, 'ceklogin']);
-    Route::get('logout', [AdminController::class, 'logout']);
+    });
+    Route::get('login',function(){
+        return view('Administrator.Login');
+    });
 });
 
 // Route masyarakat

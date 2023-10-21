@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Masyarakat;
 use App\Models\MasyarakatModel;
+use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 
 class MasyarakatController extends Controller
@@ -36,8 +37,32 @@ class MasyarakatController extends Controller
             'telp' => $request->telp,
         ]);
 
-        return back()->with('pesan', 'selamat, registrasi berhasil');
+        return redirect('/')->with('pesan', 'selamat, registrasi berhasil');
     }
+    public function pengaduan()
+    {
+        return view('Pengaduan');
+    }
+public function Lapor(Request $request)
+{
+    $N = new Pengaduan();
+    // $cek = $request->validate([
+    //     'id_pengaduan' => 'required|unique:pengaduan|max:16',
+    //     'tgl_pengaduan' => 'required',
+    //     'nik' => 'required|min:6',
+    //     'isi_laporan' => 'required|min:4',
+    //     'foto' => 'required|max:13'
+    // ]);
+    $N->create([
+        'tgl_pengaduan' => $request->tgl_pengaduan,
+        'nik' => $request->nik,
+        'isi_laporan' => $request->isi_laporan,
+        'foto' => $request->foto,
+    ]);
+
+    return back()->with('pesan', 'selamat, registrasi berhasil');
+}
+
     public function ceklogin(Request $request)
     {
         $p = new Masyarakat();

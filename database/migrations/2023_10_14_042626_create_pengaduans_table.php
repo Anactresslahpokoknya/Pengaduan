@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pengaduans', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_pengaduan');
             $table->date('tgl_pengaduan')->nullable();
             $table->string('nik')->nullable();
             $table->text('isi_laporan')->nullable();

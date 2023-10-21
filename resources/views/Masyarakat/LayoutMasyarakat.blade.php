@@ -12,10 +12,10 @@
 <body>
     <nav class="navbar navbar-dark bg-primary bg-gradient">
         <div class="container">
-            <span class="navbar-brand fw-bold">LPM Apps</span>
+            <span class="navbar-brand fw-bold">Lapor Pak</span>
             <ul class="nav ms-auto">
                 <li class="nav-item">
-                    <a href="" class="btn btn-success">Logout</a>
+                    <a href="{{url('login')}}" class="btn btn-danger">Logout</a>
                 </li>
             </ul>
         </div>

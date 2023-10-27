@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pengaduan extends Model
 {
     use HasFactory;
+    protected $table = 'pengaduans';
     protected $primaryKey='id_pengaduan';
     public $incrementing=true;
     public $guarded=[];

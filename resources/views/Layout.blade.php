@@ -37,15 +37,8 @@
                     <li class="nav-item mb-1">
                         <a href="#" class="nav-link ">
                             <i class="bi bi-file-earmark-text-fill"></i>
-                            Aduan Masuk
+                             Validasi
                         </a>
-                    </li>
-                    <li class="nav-item mb-1">
-                        <a href="#" class="nav-link ">
-                            <i class="bi bi-people-fill"></i>
-                            Data anggota
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -55,7 +48,7 @@
                     <span class="navbar-brand">@yield('title')</span>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a href="/admin/logout" class="btn btn-danger">
+                            <a href="{{url('login1')}}" class="btn btn-danger">
                                 Sign Out
                                 <i class="bi bi-box-arrow-right"></i>
                             </a>

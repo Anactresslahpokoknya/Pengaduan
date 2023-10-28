@@ -46,27 +46,25 @@ class MasyarakatController extends Controller
 public function Lapor(Request $request)
 {
     $N = new Pengaduan();
-    $foto = $request->file('foto');
-    $folder = 'upload_data';
-    $foto->move($folder, $foto->getClientOriginalName());
-    return "asup";
+ $foto = $request->file('foto');
+   $folder2 = "upload_data";
+   $foto->move($folder2,$foto->getClientOriginalName());
+    
  
-    // $cek = $request->validate([
-    //     'id_pengaduan' => 'required|unique:pengaduans|max:16',
+    // $N = $request->validate([
     //     'tgl_pengaduan' => 'required',
     //     'nik' => 'required|min:6',
     //     'isi_laporan' => 'required|min:4',
     //     'foto' => 'required|max:13'
     // ]);
-    // $N->create([
-    //     'id_pengaduan' => $request->id_pengaduan,
-    //     'tgl_pengaduan' => $request->tgl_pengaduan,
-    //     'nik' => $request->nik,
-    //     'isi_laporan' => $request->isi_laporan,
-    //     'foto' => $request->foto,
-    // ]);
+    $N->create([
+        'tgl_pengaduan' => $request->tgl_pengaduan,
+        'nik' => $request->nik,
+        'isi_laporan' => $request->isi_laporan,
+        'foto' => $request->foto,
+    ]);
 
-    // return back()->with('pesan', 'selamat, registrasi berhasil');
+    return back()->with('pesan', 'selamat, registrasi berhasil');
 }
 
     public function ceklogin(Request $request)

@@ -1,4 +1,4 @@
-@extends('Layout')
+@extends('Administrator.Layout')
 
 @section('title', 'Dashboard Admin')
 

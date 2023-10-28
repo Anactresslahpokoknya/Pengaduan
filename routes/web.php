@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MasyarakatController;
+use App\Http\Middleware\cek;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('Administrator.index');
-    });
-    Route::get('admin', function () {
-        return view('Administrator.Login');
-    });
-});
+
 
 // Route masyarakat
 Route::prefix('/')->group(function () {
@@ -41,15 +35,14 @@ Route::prefix('/')->group(function () {
 
 });
 
+Route::get('admin', [AdminController::class, 'admin'])->middleware(cek::class);
 Route::get('login1', [AdminController::class, 'login']);
     Route::post('login1', [AdminController::class, 'ceklogin']);
     Route::post('simpan1', [AdminController::class, 'simpan']);
     Route::get('registrasi1', [AdminController::class, 'registrasi1']);
     Route::post('simpan1', [AdminController::class, 'simpan1']);
-    Route::get('validasi1', [AdminController::class, 'validasi']);
-    Route::post('validasi1', [AdminController::class, 'cekValidasi']);
-    Route::post('validasi12', [AdminController::class, 'cekValidasi1']);
+    Route::get('validasi', [AdminController::class, 'validasi']);
+    Route::get('status/{id}', [AdminController::class, 'cekValidasi']);
+    Route::get('admin/logout', [AdminController::class, 'logout']);
 
-    Route::get('validasi', function () {
-        return view('Validasi');
-    });
+

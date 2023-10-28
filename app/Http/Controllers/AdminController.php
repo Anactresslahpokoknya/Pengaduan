@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function admin()
+    {
+        return view('Administrator.index');
+    }
     public function login()
     {
         return view('Administrator.Login');
@@ -24,7 +28,7 @@ class AdminController extends Controller
 
         if ($p->exists()) {
             session([
-                'username' => $request->input('username'),
+                'username' => $p->first(),
                 'password' => $request->input('password')
             ]);
             return redirect('/admin');
@@ -49,7 +53,7 @@ class AdminController extends Controller
             'username' => $request->username,
             'password' => $request->password,
             'telp' => $request->telp,
-            'level' =>$request->level
+            'level' => $request->level
         ]);
 
         return redirect('/login1');
@@ -59,13 +63,18 @@ class AdminController extends Controller
         session()->flush();
         return back();
     }
-    public function cekValidasi(Request $request){
-        $m = new Pengaduan(); $cek = $request->validate([ 'nik'=>'required|max:16', 'foto'=>'unique', 'isi_laporan'=>'required|min:10', 'tgl_pengaduan'=>'unique' ]); $m->create($request->all()); return back()->with('pesan','Selamat, validasi berhasil'); } 
-    
-        public function cekValidasi1()
-        {
-            return view('Administrator.Validasi');
-        }
+    public function cekValidasi(Request $request,$id)
+    {
+        $m = new Pengaduan();
+        $m->find($id)->update(['status'=>'proses']);
+        return back()->with('pesan', 'Selamat, validasi berhasil');
     }
+
+    public function validasi()
+    {
+        $m = new Pengaduan();
+        return view('Administrator.Validasi',['data'=>$m->all()]);
+    }
+}
 
 

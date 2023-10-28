@@ -7,10 +7,6 @@
         @csrf
         <h1>Isi Laporan</h1>
         <div class="mb-3">
-          <label for="id_pengaduan" class="form-label">Id Pengaduan</label>
-          <input type="id" class="form-control" name="id_pengaduan">
-        </div>
-        <div class="mb-3">
           <label for="tanggal" class="form-label">Tanggal</label>
           <input type="date" class="form-control" name="tgl_pengaduan">
         </div>

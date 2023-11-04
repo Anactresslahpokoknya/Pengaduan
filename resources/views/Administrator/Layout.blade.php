@@ -23,24 +23,15 @@
             <div id="menu" class="mt-4 ">
                 <ul class="nav flex-column ">
                     <li class="nav-item mb-1">
-                        <a href="{{url('admin')}}" class="nav-link active">
+                        <a href="{{ url('admin') }}" class="nav-link active">
                             <i class="bi bi-house-fill"></i>
                             Dashboard
                         </a>
                     </li>
-                    @if (session('username')->level == 'admin')
                     <li class="nav-item mb-1">
-                        <a href="#" class="nav-link ">
-                            <i class="bi bi-person-bounding-box"></i>
-                            Pengguna
-                        </a>
-                    </li>
-                    @endif
-
-                    <li class="nav-item mb-1">
-                        <a href="{{url('validasi')}}" class="nav-link ">
+                        <a href="{{ url('validasi') }}" class="nav-link ">
                             <i class="bi bi-file-earmark-text-fill"></i>
-                             Validasi
+                            Validasi
                         </a>
                 </ul>
             </div>
@@ -51,7 +42,7 @@
                     <span class="navbar-brand">@yield('title')</span>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a href="{{url('admin/logout')}}" class="btn btn-danger">
+                            <a href="{{ url('admin/logout') }}" class="btn btn-danger">
                                 Sign Out
                                 <i class="bi bi-box-arrow-right"></i>
                             </a>

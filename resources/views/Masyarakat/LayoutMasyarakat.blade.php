@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-icons.min.css">
 </head>
+
 <body>
     <nav class="navbar navbar-dark bg-primary bg-gradient">
         <div class="container">
             <span class="navbar-brand fw-bold">Lapor Pak</span>
             <ul class="nav ms-auto">
                 <li class="nav-item">
-                    <a href="{{url('login')}}" class="btn btn-danger">Logout</a>
+                    <a href="{{ url('login') }}" class="btn btn-danger">Logout</a>
                 </li>
             </ul>
         </div>
@@ -23,4 +24,5 @@
 
     @yield('isi_halaman')
 </body>
+
 </html>

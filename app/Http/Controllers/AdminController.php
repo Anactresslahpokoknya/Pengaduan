@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
 use App\Models\Petugas;
+use App\Models\Tanggapan;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -63,18 +64,19 @@ class AdminController extends Controller
         session()->flush();
         return back();
     }
-    public function cekValidasi(Request $request,$id)
+    public function cekValidasi(Request $request, $id)
     {
         $m = new Pengaduan();
-        $m->find($id)->update(['status'=>'proses']);
+        $m->find($id)->update(['status' => 'proses']);
         return back()->with('pesan', 'Selamat, validasi berhasil');
     }
 
     public function validasi()
     {
         $m = new Pengaduan();
-        return view('Administrator.Validasi',['data'=>$m->all()]);
+        return view('Administrator.Validasi', ['data' => $m->all()]);
     }
+
 }
 
 

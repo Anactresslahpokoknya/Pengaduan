@@ -11,10 +11,10 @@ class Masyarakat extends Otentikasi
 
     use HasFactory;
     protected $table = 'masyarakats';
-    protected $primaryKey='nik';
-    protected $keyType='string';
+    protected $primaryKey = 'nik';
+    protected $keyType = 'string';
 
-    public $incrementing=false;
+    public $incrementing = false;
 
-    public $guarded=[];
+    public $guarded = [];
 }

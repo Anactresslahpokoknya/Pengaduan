@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-icons.min.css">
     <style>
-        #main .card{
+        #main .card {
             max-width: 400px;
         }
     </style>
 </head>
+
 <body>
     <div id="main" class="d-flex vh-100 align-items-center text-bg-primary">
         <div class="container-fluid">
@@ -24,10 +25,12 @@
                     <form action="" method="post" class="mt-5">
                         @csrf
                         <div class="mb-3">
-                            <input type="text" id="username" name="username" class="form-control py-2" placeholder="Username">
+                            <input type="text" id="username" name="username" class="form-control py-2"
+                                placeholder="Username">
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="password" name="password" class="form-control py-2" placeholder="Password">
+                            <input type="text" id="password" name="password" class="form-control py-2"
+                                placeholder="Password">
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-outline-light form-control">Sign in</button>
@@ -38,4 +41,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -26,11 +26,6 @@
                             <td>{{ $inem->isi_laporan }}</td>
                             <td>{{ $inem->tgl_pengaduan }}</td>
                             <td>{{ $inem->status }}</td>
-                            <td>
-                                <a href="{{ url('/status/' . $inem->id) }}" class="btn btn-primary">
-                                    <i class="bi bi-plus-circle-fill"></i> Tanggapi
-                                </a>
-                            </td>
                         </tr>
                     @endforeach
                 </tbody>

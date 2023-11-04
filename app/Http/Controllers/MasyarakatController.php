@@ -43,29 +43,29 @@ class MasyarakatController extends Controller
     {
         return view('Pengaduan');
     }
-public function Lapor(Request $request)
-{
-    $N = new Pengaduan();
- $foto = $request->file('foto');
-   $folder2 = "upload_data";
-   $foto->move($folder2,$foto->getClientOriginalName());
-    
- 
-    // $N = $request->validate([
-    //     'tgl_pengaduan' => 'required',
-    //     'nik' => 'required|min:6',
-    //     'isi_laporan' => 'required|min:4',
-    //     'foto' => 'required|max:13'
-    // ]);
-    $N->create([
-        'tgl_pengaduan' => $request->tgl_pengaduan,
-        'nik' => $request->nik,
-        'isi_laporan' => $request->isi_laporan,
-        'foto' => $request->foto,
-    ]);
+    public function Lapor(Request $request)
+    {
+        $N = new Pengaduan();
+        $foto = $request->file('foto');
+        $folder2 = "upload_data";
+        $foto->move($folder2, $foto->getClientOriginalName());
 
-    return back()->with('pesan', 'selamat, registrasi berhasil');
-}
+
+        // $N = $request->validate([
+        //     'tgl_pengaduan' => 'required',
+        //     'nik' => 'required|min:6',
+        //     'isi_laporan' => 'required|min:4',
+        //     'foto' => 'required|max:13'
+        // ]);
+        $N->create([
+            'tgl_pengaduan' => $request->tgl_pengaduan,
+            'nik' => $request->nik,
+            'isi_laporan' => $request->isi_laporan,
+            'foto' => $request->foto,
+        ]);
+
+        return back()->with('pesan', 'selamat, registrasi berhasil');
+    }
 
     public function ceklogin(Request $request)
     {

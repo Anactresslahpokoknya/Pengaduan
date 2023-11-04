@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class cek
+class secure
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,6 @@ class cek
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (session('username')->level != 'admin') {
-            return redirect('login1');
-        }
         return $next($request);
     }
 }
